@@ -17,24 +17,24 @@ App::uses('Debugger', 'Utility');
 <?php $this->Html->scriptStart(array('inline' => false)); ?>
 	$(function() {
 		$(document).on('click', '#bill_post',function() {
-		var sale_id = $(this).val();
-		$.ajax({
-			type: 'post',
-			//送信先はcakephpのhtmlヘルパーを使用
-			url: '<?= $this->Html->url(['controller' => 'Sale', 'action' => 'bill']) ?>',
-			dataType: 'JSON',
-			//送信する内容はsaleテーブルのIDのみ
-			data: {
-				id: sale_id
-			},
-		//記事用なのでエラーメッセージは省略
-		// 送信ができた時
-		}).done(function(data) {
-			window.alert('送信しました。');
-		// 送信ができなかった時
-		}).fail(function() {
-			window.alert('送信できませんでした。');
-		});
+			var sale_id = $(this).val();
+			$.ajax({
+				type: 'post',
+				//送信先はcakephpのhtmlヘルパーを使用
+				url: '<?= $this->Html->url(['controller' => 'Freees', 'action' => 'bill']) ?>',
+				dataType: 'JSON',
+				//送信する内容はsaleテーブルのIDのみ
+				data: {
+					id: sale_id
+				},
+			//記事用なのでエラーメッセージは省略
+			// 送信ができた時
+			}).done(function(data) {
+				window.alert('送信しました。');
+			// 送信ができなかった時
+			}).fail(function() {
+				window.alert('送信できませんでした。');
+			});
 		});
 	});
 <?php $this->Html->scriptEnd(); ?>
